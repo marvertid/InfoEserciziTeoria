@@ -73,6 +73,10 @@ int Libreria::operator||(Libro newLibro) {
     while (arrLibri[i] != newLibro && i < nLibri) {
         i++;
     }
+    if(i < nLibri) {
+        return i;
+    }
+    return -1;
 
 }
 //void Libreria::operator+(Libro newLibro);
