@@ -13,4 +13,6 @@ Metodi richiesti:**
 - calcolare il punto di intersezione fra due rette
 Funzioni friend:
 - calcolare, quando possibile, il coefficiente angolare della retta
+
+
 ![image](https://github.com/marvertid/InfoEserciziTeoria/assets/152005949/a04797c5-7e29-496e-ad15-0653100d7e81)
