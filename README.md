@@ -1,4 +1,2 @@
 # Informatica - Esercizi Teoria
-Questo file è a solo scopo di organizazzione gli esercizi sono classificati come diversi **branch**.
-
-<ins>***Per selezionare gli esercizi cambiare branch***</ins>
+Questa repository contiene tutti gli esercizi di _Informatica Teoria_ del **4** e **5** anno.
