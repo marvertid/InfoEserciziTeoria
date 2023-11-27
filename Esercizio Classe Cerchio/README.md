@@ -10,6 +10,5 @@ Rappresentare con un diagramma UML e implementare la classe Cerchio con i seguen
 - i metodi per calcolare la misura della circonferenza e dell'area; 
 
 - un metodo che a partire da un cerchio ne crei uno con raggio doppio;
-
-~~- una funzione friend che, dati due cerchi, stabilisce se sono congruenti. [NO]~~
+- ~~una funzione friend che, dati due cerchi, stabilisce se sono congruenti. [NO]~~
 
