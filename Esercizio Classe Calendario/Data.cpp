@@ -44,6 +44,18 @@ int Data::getAnno() {
     return anno;
 }
 
+void Data::setGiorno(int g) {
+    giorno = g;
+}
+
+void Data::setMese(int m) {
+    mese = m;
+}
+
+void Data::setAnno(int a) {
+    anno = a;
+}
+
 void Data::print() {
     cout << giorno << "/" << mese << "/" << anno << endl;
 }
@@ -79,31 +91,34 @@ void Data::read() {
     } while (!valid);
 }
 
-int Data::valida() {
-    int valid = 1;
+bool Data::valida() {
+    bool valid = true;
     if (mese == 2) {
         if ((anno % 100 == 0 && anno % 400 == 0) || (anno % 4 == 0)) {
             if (giorno > 29) {
-                valid = 0;
+                valid = false;
             }
         }else if(giorno > 28) {
-            valid = 0;
+            valid = false;
         }
     }
     if ((mese == 4 || mese == 6 || mese == 9 || mese == 11) && giorno > 30) {
-        valid = 0;
+        valid = false;
+    }
+    if (giorno > 31) {
+        valid = false;
     }
 
     return valid; 
 }
 
-int confrontaDate(Data d1, Data d2) { //0 = uguali, 1 = d1 antecedente, 2 = d2 antecedente.
-    int flag = 2;
-    
-    if (d1.anno == d2.anno && d1.mese == d2.mese && d1.giorno == d2.giorno) {
-        flag = 0;
-    } else if (d1.anno > d2.anno && d1.mese > d2.mese && d1.giorno > d2.giorno) {
-        flag = 1;
+int confrontaDate(Data d1, Data d2) {
+    int flag = 0;
+
+    if (d1.anno > d2.anno ||(d1.anno == d2.anno && d1.mese > d2.mese) || (d1.anno == d2.anno && d1.mese == d2.mese && d1.giorno > d2.giorno)) {
+        flag = 1;  // d1 antecedente
+    } else if (d1.anno < d2.anno || (d1.anno == d2.anno && d1.mese < d2.mese) || (d1.anno == d2.anno && d1.mese == d2.mese && d1.giorno < d2.giorno)) {
+        flag = 2;  // d2 antecedente
     }
 
     return flag;
