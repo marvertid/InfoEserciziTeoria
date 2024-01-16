@@ -6,8 +6,7 @@ Romanzo::Romanzo() {
     titolo = "Undefined";
     prezzo = 0.0;
 }
-Romanzo::Romanzo(string code, string author, string title, float price) {
-    ISBN = code;
+Romanzo::Romanzo(string code, string author, string title, float price) : Libro(code) {
     autore = author;
     titolo = title;
     prezzo = price;
@@ -40,7 +39,7 @@ float Romanzo::getPrezzo() {
     return prezzo;
 }
 void Romanzo::setAll(string code, string author, string title, float price) {
-    ISBN = code;
+    setISBN(code);
     autore = author;
     titolo = title;
     prezzo = price;
@@ -49,8 +48,10 @@ void Romanzo::setAll(string code, string author, string title, float price) {
     }
 }
 void Romanzo::leggi() {
+    string temp;
     cout << endl << "Inserire il codice ISBN del libro: ";
-    cin >> ISBN;
+    cin >> temp;
+    setISBN(temp);
     cout << endl << "Inserire il nome dell'autore: ";
     cin >> autore;
     cout << endl << "Inserire il titolo del libro: ";
@@ -61,20 +62,20 @@ void Romanzo::leggi() {
     }while (prezzo <= 0);
 }
 void Romanzo::stampa() {
-    cout << endl << "ISBN: " << ISBN;
+    cout << endl << "ISBN: " << getISBN();
     cout << endl << "Autore: " << autore;
     cout << endl << "Titolo: " << titolo;
     cout << endl << "Prezzo: " << prezzo;
 }
 bool Romanzo::operator!=(Romanzo libro) {
-    if (ISBN != libro.ISBN || autore != libro.autore || titolo != libro.titolo || prezzo != libro.prezzo) {
-        return false;
+    if (getISBN() != libro.getISBN() || autore != libro.autore || titolo != libro.titolo || prezzo != libro.prezzo) {
+        return true;
     }
-    return true;
+    return false;
 }
 
 ostream& operator<<(ostream& out, Romanzo& libro) {
-    out << endl << "ISBN: " << libro.ISBN;
+    out << endl << "ISBN: " << libro.getISBN();
     out << endl << "Autore: " << libro.autore;
     out << endl << "Titolo: " << libro.titolo;
     out << endl << "Prezzo: " << libro.prezzo;
