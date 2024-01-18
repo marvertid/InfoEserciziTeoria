@@ -64,7 +64,7 @@ int Albergo::nSTanzeLibere() {
 }
 float Albergo::operator*(int piano) {
     int i;
-    for (i = 0; i < dim && (s[i].getPiano() == piano && s[i].getStato() == true); i++);
+    for (i = 0; i < dim && (s[i].getPiano() != piano && s[i].getStato() != true); i++);
     if (i < dim) {
         s[i].setStato(false);
         return s[i].getMq() * costoU;
@@ -73,7 +73,7 @@ float Albergo::operator*(int piano) {
 }
 float operator*(int piano, Albergo& newAlbergo) {
     int i;
-    for (i = 0; i < newAlbergo.dim && (newAlbergo.s[i].getPiano() == piano && newAlbergo.s[i].getStato() == true); i++);
+    for (i = 0; i < newAlbergo.dim && (newAlbergo.s[i].getPiano() != piano && newAlbergo.s[i].getStato() != true); i++);
     if (i < newAlbergo.dim) {
         newAlbergo.s[i].setStato(false);
         return newAlbergo.costoU;
