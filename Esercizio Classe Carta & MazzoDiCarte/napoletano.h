@@ -5,11 +5,11 @@
 #include <ctime>
 class Napoletano : public MazzoDiCarte {
     public:
-    Napoletano();
-    ~Napoletano();
-    void inizializza();
-    int getDim();
-    Carta operator--();
+        Napoletano();
+        ~Napoletano();
+        void inizializza();
+        int getDim();
+        Carta operator--();
 };
 
 #endif

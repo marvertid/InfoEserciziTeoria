@@ -17,7 +17,7 @@ class Carta {
         void setNome(string nome);
         void setNumero(int numero);
         void setPunteggio(int punteggio);
-        int confronta(Carta c2, Carta briscola);
+        Carta confronta(Carta c2, Carta briscola);
         int operator+(Carta c2);
     friend istream& operator>>(istream& inp, Carta c);
     friend ostream& operator<<(ostream& out, Carta c);

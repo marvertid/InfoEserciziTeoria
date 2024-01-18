@@ -46,7 +46,7 @@ void Carta::setPunteggio(int punteggio) {
     }
 }
 
-int Carta::confronta(Carta c2, Carta briscola) {
+Carta Carta::confronta(Carta c2, Carta briscola) {
     Carta cartaVincente;
     if (c2.seme == this->seme) {
         cartaVincente = (c2.punteggio > this->punteggio) ? c2 : (*this);
@@ -57,7 +57,7 @@ int Carta::confronta(Carta c2, Carta briscola) {
     } else {
         cartaVincente = (c2.seme == briscola.seme) ? c2 : (*this);
     }
-
+    return cartaVincente;
 }
 int Carta::operator+(Carta c2) {
     return numero + c2.numero;

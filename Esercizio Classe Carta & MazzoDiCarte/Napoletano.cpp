@@ -1,6 +1,7 @@
 #include "napoletano.h"
 
 Napoletano::Napoletano() {
+    delete[] c;
     dim = 40;
     c = new Carta[dim];
 }
