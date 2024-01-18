@@ -18,7 +18,8 @@ void Medico::leggi() {
     cin >> surname;
     cout << endl << "Inserire specializzazione: ";
     cin >> spec;
-    (*this) = Medico temp(name, surname, spec);
+    Medico temp(name, surname, spec);
+    (*this) = temp;
 }
 
 void Medico::stampa() {

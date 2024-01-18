@@ -128,12 +128,12 @@ istream& operator>>(istream& inp, Data& newData) {
         }while (newData.getGiorno()< 1 || newData.getGiorno()> 31);
         do {
             cout << "Mese: ";
-            cin >> temp;
+            inp >> temp;
             newData.setMese(temp);
         }while (newData.getMese() < 1 || newData.getMese() > 12);
         do {
             cout << "Anno: ";
-            cin >> temp;
+            inp >> temp;
             newData.setAnno(temp);
         }while (newData.getAnno() < 1582 || newData.getAnno() > 2200);
         if (newData.getMese() == 2) {
@@ -147,6 +147,6 @@ istream& operator>>(istream& inp, Data& newData) {
         }
         if ((newData.getMese() == 4 || newData.getMese() == 6 || newData.getMese() == 9 || newData.getMese() == 11) && newData.getGiorno()> 30) {
             valid = false;
-        } 
+        }
     } while (!valid);
 }

@@ -1,7 +1,8 @@
 #include "paziente.h"
 
 Paziente::Paziente() {
-    nascita = //todo
+    Data temp;
+    nascita = temp;
     cf = "Undefined";
 }
 

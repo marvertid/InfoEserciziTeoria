@@ -14,7 +14,7 @@ class Base : protected Medico {
         void leggi();
         void stampa();
         Base& operator++();
-        Base& operator--(const Paziente& p);
+        Base& operator-(const Paziente& p);
 };
 
 #endif

@@ -1,6 +1,11 @@
 #ifndef PAZIENTE_H
 #define PAZIENTE_H
 #include "data.h"
+#include "persona.h"
+#include <iostream>
+
+using namespace  std;
+
 
 class Paziente : public Persona {
     private:
