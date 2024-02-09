@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "/home/diego/Documents/Scuola/InfoEserciziTeoria-1/Esercizio LinkedList",
+      "program": "/home/diego/Documents/Scuola/InfoEserciziTeoria-1/Esercizio LinkedList/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
