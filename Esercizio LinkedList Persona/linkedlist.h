@@ -16,6 +16,6 @@ class LinkedList {
         bool insertTail(Persona data);
         void displayYounger();
         void displayByName(string name, string surname);
-}
+};
 
 #endif

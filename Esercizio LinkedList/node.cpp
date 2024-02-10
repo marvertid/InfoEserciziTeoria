@@ -15,7 +15,7 @@ Node::Node(int data, Node *next){
 }
 
 Node::~Node() {
-	ptrNext = nullptr;
+	
 }
 
 int Node::getInfo(){

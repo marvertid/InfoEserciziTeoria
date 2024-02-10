@@ -8,14 +8,14 @@ LinkedList::LinkedList(LinkedList &lista) {
     head = nullptr;
     Node* pAux = lista.head;
     while (!pAux) {
-        insertTail(pAux.getInfo());
+        insertTail(pAux->getInfo());
         pAux = pAux->getPtrNext();
     }
 }
 
 LinkedList::~LinkedList() {
     Node* pAux = head;
-    while (!pAux) {
+    while (!head) { //mettere head nel while perche cosi head e` certamente null
         head = head->getPtrNext();
         delete pAux;
         pAux = head;
@@ -23,7 +23,7 @@ LinkedList::~LinkedList() {
 }
 
 bool LinkedList::isEmpty() {
-    if (head == nullptr) return true;
+    if (head) return true;
     return false;
 }
 bool LinkedList::insertHead(Persona data) {
@@ -35,7 +35,7 @@ bool LinkedList::insertHead(Persona data) {
 bool LinkedList::insertTail(Persona data) {
     Node* pNew = new Node(data);
     Node* pAux;
-    if(!pAux) return false
+    if(!pAux) return false;
     if(isEmpty()) {
         head = pNew;
     } else {
@@ -47,37 +47,38 @@ bool LinkedList::insertTail(Persona data) {
 }
 void LinkedList::displayYounger() {
     Node* pAux;
-    if (head) {
+    if (isEmpty()) {
         cerr <<  "Lista vuota!";
     } else {
         int min;
         Node* temp;
         pAux = head;
-        min = pAux.getInfo();
+        min = pAux->getInfo().getEta();
         temp = head;
         pAux = pAux->getPtrNext();
         while (!pAux) {
-            if (pAux->getInfo() < min) {
-                min = pAux->getInfo();
+            if (pAux->getInfo().getEta() < min) {
+                min = pAux->getInfo().getEta();
                 temp = pAux;
             }
             pAux = pAux->getPtrNext();
         }
 
-        cout << endl << "Nome: " << temp->getNome();
-        cout << endl << "Cognome: " << temp->getCognome();
-        cout << endl << "Eta: " << temp->getEta();
+        cout << endl << "Nome: " << temp->getInfo().getNome();
+        cout << endl << "Cognome: " << temp->getInfo().getCognome();
+        cout << endl << "Eta: " << temp->getInfo().getEta();
 
  
     }
 }
 void LinkedList::displayByName(string name, string surname) {
     Node* pAux = head;
-    while (!pAux && (pAux->getNome() != name || pAux->getCognome() != name))
+    while (!pAux && (pAux->getInfo().getNome() != name || pAux->getInfo().getNome() != name))
         pAux = pAux->getPtrNext();
     if (pAux) {
         cout << "Persona non trovata!";
     } else {
-        cout << endl << "Eta: " << pAux->getEta();
+        cout << endl << "Eta: " << pAux->getInfo().getEta();
     }
 }
+

@@ -219,3 +219,42 @@ void LinkedList::multiplyNeg() {
     }
 }
 
+void LinkedList::sort() {
+    /*naive sort*/
+    Node* pi = head, *pj;
+    if(!isEmpty()) {
+        while (!pi->getPtrNext()) {
+            pj = pi->getPtrNext();
+            while (!pj) {
+                if (pi->getInfo() > pj->getInfo()) {
+                    swap(pi, pj);
+                    pj = pj->getPtrNext();
+                }
+                pj = pj->getPtrNext();
+            }
+            pi = pi->getPtrNext();
+        }
+    }
+}
+
+void LinkedList::swap(Node* p1, Node* p2) {
+    int temp;
+    temp = p1->getInfo();
+    p1->setInfo(p2->getInfo());
+    p2->setInfo(temp);
+}
+
+istream& operator>>(istream& in, LinkedList &lista) {
+    int n;
+    do {
+        cout << "Inserire numero elementi: ";
+        in >> n;
+    } while (n < 0);
+    for (int i = 0 ; i < n; i++) {
+        int value;
+        in >> value;
+        if(lista.insertTail(value))
+            cerr << "Fallita!";
+    }
+
+}

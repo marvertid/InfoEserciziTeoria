@@ -17,6 +17,6 @@ class Node {
 		void setInfo(Persona data);
 		void setPtrNext(Node *next);
 		void setNode(Persona data, Node *next);
-}
+};
 
 #endif

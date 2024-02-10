@@ -8,6 +8,7 @@ class LinkedList{
 				    //puntatore al primo nodo della lista concatenata semplice
 
         void displayRec(Node* head);
+		void swap(Node* p1, Node* p2);
     public:
 		LinkedList();				//costruttore di default
 //		LinkedList(int el);  		//costruttore con parametri: istanzia una lista con un unico nodo
@@ -29,7 +30,7 @@ class LinkedList{
 		LinkedList sqInsertTail();
 		bool removeEvenHead();
 		void multiplyNeg();
-		bool sort();
+		void sort();
 	friend istream& operator>>(istream& in, LinkedList &lista);
 		Node operator--();
 		LinkedList& operator+(LinkedList &lista);

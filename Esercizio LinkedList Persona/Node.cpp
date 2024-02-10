@@ -1,32 +1,40 @@
 #include "node.h"
 
-Node() {
+Node::Node() {
     ptrNext = nullptr;
 }
-Node(Persona data) {
+
+Node::Node(Persona data) {
     info = data;
     ptrNext = nullptr;
 }
-Node(Persona data, Node *next) {
+
+Node::Node(Persona data, Node *next) {
     info = data;
     ptrNext = next;
 }
-~Node() {
-    ptrNext = nullptr;
+
+Node::~Node() {
+    
 }
-Persona getInfo() {
+
+Persona Node::getInfo() {
     return info;
 }
-Node* getPtrNext() {
+
+Node* Node::getPtrNext() {
     return ptrNext;
 }
-void setInfo(Persona data) {
+
+void Node::setInfo(Persona data) {
     info = data;
 }
-void setPtrNext(Node *next) {
+
+void Node::setPtrNext(Node *next) {
     ptrNext = next;
 }
-void setNode(Persona data, Node *next) {
+
+void Node::setNode(Persona data, Node *next) {
     info = data;
     ptrNext = next;
 }
