@@ -253,7 +253,7 @@ istream& operator>>(istream& in, LinkedList &lista) {
     for (int i = 0 ; i < n; i++) {
         int value;
         in >> value;
-        if(lista.insertTail(value))
+        if(!lista.insertTail(value))
             cerr << "Fallita!";
     }
 
