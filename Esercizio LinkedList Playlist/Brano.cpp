@@ -50,12 +50,19 @@ ostream& operator<<(ostream& out, const Brano &brano) {
     return out;
 }
 
-istream& operator>>(istream& in, const Brano &brano) {
+istream& operator>>(istream& in, Brano &brano) {
     cout << endl << "Inserire brano: ";
     cout << endl << "Titolo: ";
-    in >> brano.titolo;
+    string t;
+    int temp;
+    in >> t;
+    brano.setTitolo(t);
     cout << endl << "Durata: ";
-    in >> brano.durata;
+    in >> temp;
+    brano.setD(temp);
     cout << endl << "Punt: ";
-    in >> brano.punt;
+    in >> temp;
+    brano.setP(temp);
+
+    return in;
 }
