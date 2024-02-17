@@ -120,3 +120,35 @@ Brano& Playlist::operator-(string t) {
     delete ptrCancel;
     return temp;
 }
+
+bool Playlist::operator!() {
+    Node* pAux = head, *pj;
+    if(!isEmpty()) {
+        while(!pAux->getPnext()) {
+            pj = pAux->getPnext();
+            while(!pj) {
+                if(pAux->getBrano().getP() > pj->getBrano().getP()) {
+                    swap(pAux, pj);
+                }
+                pj = pj->getPnext();
+            }
+            pAux = pAux->getPnext();
+        }
+    }
+}
+
+void Playlist::swap(Node* pi, Node* pj) {
+    Brano temp;
+    temp = pi->getBrano();
+    pi->setBrano(pj->getBrano());
+    pj->setBrano(temp);
+}
+
+Playlist& Playlist::operator+(Brano brano) {
+    insertHead(brano);
+    !(*this);
+
+    return *this;
+}
+
+
