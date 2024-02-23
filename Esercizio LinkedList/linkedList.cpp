@@ -219,21 +219,22 @@ void LinkedList::multiplyNeg() {
     }
 }
 
+/*metodo che ordina gli elementi della lista*/
 void LinkedList::sort() {
-    /*naive sort*/
-    Node* pi = head, *pj;
-    if(!isEmpty()) {
-        while (!pi->getPtrNext()) {
+    if (!isEmpty()) {
+        Node* pi = head, * pj;
+        while (pi->getPtrNext()) {
             pj = pi->getPtrNext();
-            while (!pj) {
-                if (pi->getInfo() > pj->getInfo()) {
+            while (pj) {
+                if (pi->getInfo() > pj->getInfo())
                     swap(pi, pj);
-                    pj = pj->getPtrNext();
-                }
                 pj = pj->getPtrNext();
             }
             pi = pi->getPtrNext();
         }
+    }
+    else {
+        cout << "Lista vuota";
     }
 }
 
