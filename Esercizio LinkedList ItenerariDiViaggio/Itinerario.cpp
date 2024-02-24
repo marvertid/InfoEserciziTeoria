@@ -9,13 +9,14 @@ Itinerario::Itinerario(Itinerario& i) {
 	while (pAux) {
 		this->insertTail(pAux->getInfo());
 		pAux = pAux->getPtrNext();
+	
 	}
 }
 Itinerario::~Itinerario() {
 	Nodo* pAux = head;
 	while (pAux) {
 		pAux = pAux->getPtrNext();
-		delete[] head;
+		delete head;
 		head = pAux;
 	}
 }
@@ -48,8 +49,7 @@ bool Itinerario::insertTail(Tappa t) {
 }
 
 bool Itinerario::isEmpty() {
-	if (head) return false;
-	return true;
+	return (!head);
 }
 void Itinerario::displayNext() {
 	cout << endl << "Prossima Tappa: " + head->getPtrNext()->getInfo();
@@ -80,5 +80,23 @@ Itinerario& Itinerario::operator--(int) {
 
 }
 Itinerario& Itinerario::operator-(string n) {
+	if (!isEmpty()) {
+		Nodo *pPrev = head;
+		while (pPrev->getPtrNext().getInfo().getNome() != n && pPrev) {
+			pPrev = pPrev->getPtrNext();
+		}
+		if (pPrev) {
+			Nodo* pCanc = pPrev->getPtrNext();
+			Nodo* pAfter = pCanc->getPtrNext();
+			delete pCanc;
+			pPrev->setPtrNext(pAfter);
+		} else {
+			cout << "Nodo non trovato!";
+		}
+		
+	} else {
+		cout << "Lista vuota!";
+	}
 
+	return (*this);
 }
