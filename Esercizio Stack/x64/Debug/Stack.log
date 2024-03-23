@@ -1,0 +1,7 @@
+﻿  Node.cpp
+  Stack.cpp
+C:\Users\MARVERTID20\Documents\InfoEserciziTeoria\InfoEserciziTeoria\Esercizio Stack\Stack\Stack\Stack.cpp(24,27): error C2761: 'bool Stack::push(int)': non è consentito dichiarare di nuovo il membro
+C:\Users\MARVERTID20\Documents\InfoEserciziTeoria\InfoEserciziTeoria\Esercizio Stack\Stack\Stack\Stack.cpp(25,18): error C2761: 'bool Stack::pop(void)': non è consentito dichiarare di nuovo il membro
+C:\Users\MARVERTID20\Documents\InfoEserciziTeoria\InfoEserciziTeoria\Esercizio Stack\Stack\Stack\Stack.cpp(29,22): error C2761: 'bool Stack::isEmpty(void)': non è consentito dichiarare di nuovo il membro
+  Generazione del codice in corso...
+C:\Users\MARVERTID20\Documents\InfoEserciziTeoria\InfoEserciziTeoria\Esercizio Stack\Stack\Stack\Node.cpp(18): error C4716: 'Node::setDato': deve restituire un valore
