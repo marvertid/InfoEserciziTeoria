@@ -35,6 +35,9 @@ bool Queue::getRear() {
 }
 bool Queue::insert(string info, int priority) {
     Node* pNew = new Node(info, priority);
+    
+    if (!pNew) return false;
+
     if (isEmpty()) {
         rear = front = pNew;
     } else {
