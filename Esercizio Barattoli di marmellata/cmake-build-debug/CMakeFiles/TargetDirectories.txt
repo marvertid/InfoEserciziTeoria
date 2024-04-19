@@ -1,0 +1,3 @@
+E:/Documents/Scuola/Info/compiti per casa/Esercizio Barattoli di marmellata/cmake-build-debug/CMakeFiles/Esercizio_Barattoli_di_marmellata.dir
+E:/Documents/Scuola/Info/compiti per casa/Esercizio Barattoli di marmellata/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/Documents/Scuola/Info/compiti per casa/Esercizio Barattoli di marmellata/cmake-build-debug/CMakeFiles/rebuild_cache.dir
