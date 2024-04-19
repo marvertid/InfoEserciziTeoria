@@ -20,8 +20,9 @@ Queue::Queue(const Queue& queue) {
 }
 
 Queue::~Queue() {
-    Node *pDel = front;
-    while (pDel) {
+    Node *pDel;
+    while (front) {
+        pDel = front;
         front = front->getNextPtr();
         delete pDel;
     }
