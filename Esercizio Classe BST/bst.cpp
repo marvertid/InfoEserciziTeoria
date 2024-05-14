@@ -5,16 +5,17 @@ BST::BST(){
 }
 
 BST::~BST() {
-    BSTdestructor(root);
+    BSTdestructor(&root);
 }
 
-void BST::BSTdestructor(TreeNode* root) {
-    if (root) {
-        BSTdestructor(root->getLeft());
-        BSTdestructor(root->getRight());
-        delete root;   
+void BST::BSTdestructor(TreeNode** root) {
+    if (*root) {
+        BSTdestructor((*root)->getPtrLeft());
+        BSTdestructor((*root)->getPtrRight());
+        delete *root;
+        *root = nullptr;
     }
-    
+
 }
 
 //Visita in ordine anticipato ricorsiva
@@ -109,31 +110,26 @@ void BST::postHelper() {
     postWalk(root);
 }
 
-int BST::simmetricSum(TreeNode* root, int sum) {
+int BST::simmetricSum(TreeNode* root) {
      if (root) {
-        sum = simmetricSum(root->getLeft(), sum);
-        sum += root->getInfo();
-        sum = simmetricSum(root->getRight(), sum);
-        return sum;
+        return simmetricSum(root->getLeft()) + root->getInfo() + simmetricSum(root->getRight());
      }
 
-     return sum;
+     return 0;
 }
 
 int BST::simmetriSumHelper() {
-   return simmetricSum(root, 0);
+   return simmetricSum(root);
 }
 
-int BST::postCount(TreeNode* root, int i) {
+int BST::postCount(TreeNode* root) {
     if (root) {
-        i = postCount(root->getLeft(), i);
-        i = postCount(root->getRight(), i);
-        return ++i;
+        return postCount(root->getLeft()) + 1 + postCount(root->getRight());
     }
 
-    return i;
+    return 0;
 }
 
 int BST::postCountHelper() {
-    return postCount(root, 0);
+    return postCount(root);
 }

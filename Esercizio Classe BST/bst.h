@@ -14,9 +14,9 @@ class BST{
         int massimoRec(TreeNode* root);
         void simmetricWalk(TreeNode* root);
         void postWalk(TreeNode* root);
-        int simmetricSum(TreeNode* root, int sum);
-        int postCount(TreeNode* root, int i);
-        void BSTdestructor(TreeNode* root);
+        int simmetricSum(TreeNode* root);
+        int postCount(TreeNode* root);
+        void BSTdestructor(TreeNode** root);
     public:
         BST();
         ~BST();
