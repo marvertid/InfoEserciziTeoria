@@ -1,0 +1,14 @@
+DBPatenti {
+	Provincia(Sigla, _Id_)
+	Regione(Nome, _Id_)
+	Comune(Nome, _Cap_, codRegione)
+		FK: codRegione REF Regione(Id)
+	Cittadino(Nome, Cognome, DataN, Via, Civico, _Id_, codComune)
+		FK: codComune REF Comune(Id)
+	Esaminatore(Nome, Cognome, DataN, Via, Civico, _CodF_, NTelefono, Email, codComune)
+		FK: codComune REF Comune(Id)
+	Patente(DataR, DataS, Tipo, _NPatente_, codProvincia, codCittadino, codEsaminatore)
+		FK: codProvincia REF Provincia(Id)
+			codCittadino REF Cittadino(Id)
+			codEsaminatore REF Esaminatore(CodF)
+}

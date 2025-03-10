@@ -1,0 +1,26 @@
+SELECT * 
+FROM Patente INNER JOIN Provincia ON Provincia.Id = Patente.CodProvincia
+WHERE Provincia.Sigla LIKE "MO" AND Patente.DataR LIKE "%2018"
+
+SELECT * 
+FROM Esaminatori
+ORDER BY Nome ASC
+
+SELECT * 
+FROM PATENTE
+WHERE codArmonizzato LIKE "%lenti"
+
+SELECT *
+FROM Cittadino INNER JOIN Patente ON Cittadino.Id = Patente.codCittadino
+WHERE Cittadino.CodFiscale LIKE "ABCDEF123456789X" AND DataS > "21/01/2019"
+
+SELECT Esaminatore.Nome Esaminatore.Cognome Patente.Id
+FROM Esaminatore INNER JOIN Patente ON Esaminatore.Id = Patente.codEsaminatore INNER JOIN Provincia ON Provincia.Id = Patente.codProvincia
+WHERE Provincia.Sigla = "MO"
+
+
+SELECT *
+FROM Esaminatore RIGHT JOIN Patente ON Esaminatore.Id = Patente.codEsaminatore
+
+
+
