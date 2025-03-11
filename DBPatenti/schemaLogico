@@ -7,7 +7,7 @@ DBPatenti {
 		FK: codComune REF Comune(Id)
 	Esaminatore(Nome, Cognome, DataN, Via, Civico, _CodF_, NTelefono, Email, codComune)
 		FK: codComune REF Comune(Id)
-	Patente(DataR, DataS, Tipo, NPatente, _Id_,  codProvincia, codCittadino, codEsaminatore)
+	Patente(DataR, DataS, Tipo, NPatente, _Id_, codiceArmonizzato, codProvincia, codCittadino, codEsaminatore)
 		FK: codProvincia REF Provincia(Id)
 			codCittadino REF Cittadino(Id)
 			codEsaminatore REF Esaminatore(CodF)

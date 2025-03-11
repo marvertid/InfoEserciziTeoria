@@ -1,5 +1,7 @@
 CREATE DATABASE DBPatenti;
 
+USE DBPatenti;
+
 CREATE TABLE Provincia (
 	Id INT AUTO_INCREMENT PRIMARY KEY,
 	Sigla CHAR(6) NOT NULL
@@ -25,7 +27,7 @@ CREATE TABLE Cittadino (
 	Via VARCHAR(20) NOT NULL,
 	Civico VARCHAR(20) NOT NULL,
 	codComune INT,
-	FOREIGN KEY codComune REFERENCES Comune(Cap)
+	FOREIGN KEY (codComune) REFERENCES Comune(Cap)
 );
 
 CREATE TABLE Esaminatore(
@@ -38,21 +40,21 @@ CREATE TABLE Esaminatore(
 	NTelefono VARCHAR(12) NOT NULL,
 	Email VARCHAR(40),
 	codComune INT,
-	FOREIGN KEY codComune REFERENCES Comune(Cap)
+	FOREIGN KEY (codComune) REFERENCES Comune(Cap)
 );
 
 CREATE TABLE Patente (
 	Id INT AUTO_INCREMENT PRIMARY KEY,
 	DataR Date NOT NULL,
 	DataS Date NOT NULL,
-	Tipo VARCHAR(10) NOT NULL,
-	NPatente CHAR(10),
-	codProvinicia INT,
+	Tipo VARCHAR(15) NOT NULL,
+	NPatente VARCHAR(15),
+	codProvincia INT,
 	codCittadino CHAR(16),
 	codEsaminatore CHAR(16),
-	FOREIGN KEY codProvinicia REFERENCES Provincia(Id),
-	FOREIGN KEY codCittadino REFERENCES Cittadino(codF),
-	FOREIGN KEY codEsaminatore REFERENCES Esaminatore(codF)
+	FOREIGN KEY (codProvincia) REFERENCES Provincia(Id),
+	FOREIGN KEY (codCittadino) REFERENCES Cittadino(codF),
+	FOREIGN KEY (codEsaminatore) REFERENCES Esaminatore(codF)
 );
 
 INSERT INTO Provincia(Sigla)
@@ -92,12 +94,12 @@ VALUES
     ('MNFRNC88M12H501Z', 'Francesca', 'Manni', '1988-12-12', 'Via Firenze', 18, 31030),
     ('DGMRFL81P25L219Q', 'Raffaella', 'Degli', '1981-09-25', 'Piazza Duomo', 5, 12051),
     ('GRSMRC99G08H501R', 'Marco', 'Guerra', '1999-07-08', 'Via Napoli', 3, 84012),
-	("RSSMRA85M10H501Z", "Marco", "Rossi", "10/08/1985", "Via Roma", 12, 41012),
-	("BNCLSN92A01F205X", "Alessandro", "Bianchi", "01/01/1992", "Via Garibaldi", 8, 41019),
-	("VRDGPP76D20L219Y", "Giuseppe", "Verdi", "20/04/1976", "Corso Italia", 24, 84012),
-	("MNTGPP00T15E472U", "Giovanni", "Monti", "15/12/2000", "Via Dante", 5, 12051),
-	("FRNLCU88S12D969V", "Luca", "Ferrini", "12/11/1988", "Piazza Mazzini", 19, 83100),
-	("PLZMRN95C25H501J", "Martina", "Palazzi", "23/03/1995", "Via Manzoni", 3, 31030);
+	("RSSMRA85M10H501Z", "Marco", "Rossi", "1985-08-10", "Via Roma", 12, 41012),
+	("BNCLSN92A01F205X", "Alessandro", "Bianchi", "1992-01-01", "Via Garibaldi", 8, 41019),
+	("VRDGPP76D20L219Y", "Giuseppe", "Verdi", "1976-04-20", "Corso Italia", 24, 84012),
+	("MNTGPP00T15E472U", "Giovanni", "Monti", "2000-12-15", "Via Dante", 5, 12051),
+	("FRNLCU88S12D969V", "Luca", "Ferrini", "1988-11-12", "Piazza Mazzini", 19, 83100),
+	("PLZMRN95C25H501J", "Martina", "Palazzi", "1995-03-23", "Via Manzoni", 3, 31030);
 
 INSERT INTO Esaminatore(codF, Nome, Cognome, DataN, Via, Civico, NTelefono, Email, codComune)
 VALUES
@@ -105,7 +107,7 @@ VALUES
 	('BNCLSN92A01F205X', 'Alessandra', 'Bianchi', '1992-01-01', 'Via Garibaldi', '8', '3349876543', 'alessandra.bianchi@email.com', 83100),  
 	('VRDGPP76D20L219Y', 'Giuseppe', 'Verdi', '1976-04-20', 'Corso Italia', '24', '3456789012', NULL, 31030);
 	
-INSERT INTO Patente(DataR, DataS, Tipo, NPatente, codProvinicia, codCittadino, codEsaminatore)
+INSERT INTO Patente(DataR, DataS, Tipo, NPatente, codProvincia, codCittadino, codEsaminatore)
 VALUES 
     ('2020-06-15', '2030-06-15', 'B', '123456789A', 1, 'RSSMRA85M10H501Z', 'VRDGPP76D20L219Y'),
     ('2021-03-22', '2031-03-22', 'A', '234567891B', 2, 'BNCLSN92A01F205X', 'BNCLSN92A01F205X'),
