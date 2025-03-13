@@ -23,5 +23,13 @@ WHERE Provincia.Sigla = "MO"
 SELECT Esaminatore.*, Patente.Tipo
 FROM Esaminatore LEFT JOIN Patente ON Esaminatore.Id = Patente.codEsaminatore
 
+/*8. Elencare i dati di cittadini ed esaminatori, distinguendone il ruolo*/
 
+SELECT 'Cittadino' AS Roulo, Cittadino.codF, Nome, Cognome, DataN, codComune, Via, Civico
+ FROM Cittadino
+
+ UNION
+
+ SELECT 'Esaminatore' AS Roulo, Esaminatore.codF, Nome, Cognome, DataN, codComune, Via, Civico
+ FROM Esaminatore;
 
