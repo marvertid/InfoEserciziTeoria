@@ -1,0 +1,50 @@
+/*1. Contare i prodotti stoccati in magazzino*/
+SELECT Count(*) AS 'Numero Prodotti'
+FROM Magazzino;
+
+/*2. Contare i prodotti riordinati il 2 febbraio 2020*/
+SELECT Count(*) AS 'Prodotti Riordinati il 2 Febbraio'
+FROM Magazzino
+WHERE DataRiordino = "2020-02-02";
+
+/*3. Contare i prodotti con meno di 200 lotti.*/
+SELECT Count(*) AS 'Meno 200 Lotti'
+FROM Magazzino
+WHERE NrLotti < 200;
+
+/*4. Calcolare il numero medio di lotti per i prodotti della categoria Bevande*/
+SELECT Avg(NrLotti)
+From Magazzino
+WHERE Categoria = 'Bevande'
+
+/*5. Calcolare il numero medio di lotti per prodotto stoccati in magazzino*/
+SELECT Avg(NrLotti)
+From Magazzino
+
+/*6. Calcolare il numero di lotti maggiore e il numero di lotti minore presenti in magazzino.*/
+SELECT Max(NrLotti) AS 'Max'
+FROM Magazzino
+
+UNION
+
+SELECT Min(NrLotti) AS 'Min'
+FROM Magazzino;
+
+/*7. Determinare il totale di lotti ordinati in marzo 2020*/
+Select Count(*) AS 'Riordini in Marzo'
+From Magazzino
+WHERE Month(DataRiordino) = 3 AND Year(DataRiordino) = 2020;
+
+/*8. Contare i riordini effettuati per la categoria biscotti*/
+Select Count(*) AS 'Riordini Effettuati'
+From Magazzino
+WHERE Categoria = 'Biscotti' AND DataRiordino IS NOT NULL;
+
+/*9. Contare le categorie di prodotti stoccate in magazzino*/
+SELECT Count(DISTINCT Categoria)
+FROM Magazzino;
+
+/*10.Calcolare il totale di lotti presenti in magazzino per una categoria letta in input*/
+SELECT Sum(NrLotti)
+FROM Magazzino
+WHERE Categoria = "Biscotti";
